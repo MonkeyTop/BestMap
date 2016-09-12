@@ -4,4 +4,109 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@mipmap/more_background"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:src="@mipmap/ndf_back_btn" />
+
+        <RadioButton
+            android:id="@+id/rb_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:drawablePadding="10dp"
+            android:drawableTop="@mipmap/ic_user_default"
+            android:gravity="center"
+            android:text="登录/注册"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/activity_mine_RadioButton"
+            android:drawableTop="@mipmap/route_drive_toolbox_offlinemap"
+            android:text="离线地图包" />
+
+        <RadioButton
+            style="@style/activity_mine_RadioButton"
+            android:drawableTop="@mipmap/route_drive_toolbox_voice"
+            android:text="导航语音包" />
+
+        <RadioButton
+            style="@style/activity_mine_RadioButton"
+            android:drawableTop="@mipmap/route_drive_toolbox_violation"
+            android:text="违章查询" />
+
+        <RadioButton
+            style="@style/activity_mine_RadioButton"
+            android:drawableTop="@mipmap/route_drive_toolbox_travelsecurity"
+            android:text="安全中心" />
+    </RadioGroup>
+
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff"
+        android:button="@null"
+        android:drawableLeft="@mipmap/more_tools"
+        android:drawablePadding="10dp"
+        android:text="工具箱" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:drawableLeft="@mipmap/more_driven"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/drawable_btn"
+            android:text="夜间模式" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:drawableLeft="@mipmap/more_default"
+            android:drawablePadding="10dp"
+            android:text="新闻头条" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:drawableLeft="@mipmap/more_suggest"
+            android:drawablePadding="10dp"
+            android:text="帮助与反馈" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:drawableLeft="@mipmap/more_thanks"
+            android:drawablePadding="10dp"
+            android:text="特别鸣谢" />
+    </RadioGroup>
 </LinearLayout>
