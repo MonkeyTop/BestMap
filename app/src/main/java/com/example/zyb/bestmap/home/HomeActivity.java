@@ -1,9 +1,13 @@
 package com.example.zyb.bestmap.home;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -17,11 +21,18 @@ import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MarkerOptions;
 import com.example.zyb.bestmap.R;
+import com.example.zyb.bestmap.mine.activity.MineActivity;
+import com.example.zyb.bestmap.nearby.activity.NearbyActivity;
+import com.example.zyb.bestmap.route.activity.RouteActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity {
+    private EditText et_search;
+    private RadioButton rb_nearby;
+    private RadioButton rb_route;
+    private RadioButton rb_mine;
     private MapView mapView = null;
     private AMap aMap;
     //声明mLocationOption对象
@@ -78,6 +89,12 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //初始化搜索框控件
+        et_search = (EditText) findViewById(R.id.et_search);
+        //初始化底部栏控件
+        rb_nearby = (RadioButton) findViewById(R.id.rb_nearby);
+        rb_route = (RadioButton) findViewById(R.id.rb_route);
+        rb_mine = (RadioButton) findViewById(R.id.rb_mine);
         //初始化地图控件
         mapView = (MapView) findViewById(R.id.map);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，实现地图生命周期管理
@@ -87,6 +104,38 @@ public class HomeActivity extends AppCompatActivity {
         //设置定位回调监听
         mLocationClient.setLocationListener(aMapLocationListener);
         init();
+        //操作控件et_search点击事件
+        et_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, NearbyActivity.class);
+                startActivity(intent);
+            }
+        });
+        //操作控件rb_nearby点击事件
+        rb_nearby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, NearbyActivity.class);
+                startActivity(intent);
+            }
+        });
+        //操作控件et_route点击事件
+        rb_route.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, RouteActivity.class);
+                startActivity(intent);
+            }
+        });
+        //操作控件et_mine点击事件
+        rb_mine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, MineActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //初始化AMap对象

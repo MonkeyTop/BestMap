@@ -28,7 +28,6 @@
             android:padding="10dp" />
     </RelativeLayout>
 
-
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -37,36 +36,21 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_weight="1"
-            android:button="@null"
+            android:id="@+id/rb_nearby"
+            style="@style/activity_home_RadioButton"
             android:drawableLeft="@mipmap/main_nearby"
-            android:drawablePadding="5dp"
-            android:paddingLeft="30dp"
             android:text="附近" />
 
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_weight="1"
-            android:button="@null"
+            android:id="@+id/rb_route"
+            style="@style/activity_home_RadioButton"
             android:drawableLeft="@mipmap/main_route"
-            android:drawablePadding="5dp"
-            android:paddingLeft="30dp"
             android:text="路线" />
 
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_weight="1"
-            android:button="@null"
+            android:id="@+id/rb_mine"
+            style="@style/activity_home_RadioButton"
             android:drawableLeft="@mipmap/main_mine"
-            android:drawablePadding="5dp"
-            android:paddingLeft="30dp"
             android:text="我的" />
     </RadioGroup>
 </LinearLayout>

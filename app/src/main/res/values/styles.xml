@@ -8,4 +8,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!--activity_home_RadioButton共同属性-->
+    <style name="activity_home_RadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:layout_gravity">right|center_vertical</item>
+    </style>
 </resources>
