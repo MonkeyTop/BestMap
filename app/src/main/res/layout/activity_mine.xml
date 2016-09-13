@@ -98,6 +98,8 @@
             android:button="@null"
             android:drawableLeft="@mipmap/more_default"
             android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/arrow_right"
+            android:paddingRight="25dp"
             android:text="新闻头条" />
 
         <ImageView
@@ -112,6 +114,8 @@
             android:button="@null"
             android:drawableLeft="@mipmap/more_suggest"
             android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/arrow_right"
+            android:paddingRight="25dp"
             android:text="帮助与反馈" />
 
         <ImageView
@@ -126,6 +130,8 @@
             android:button="@null"
             android:drawableLeft="@mipmap/more_thanks"
             android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/arrow_right"
+            android:paddingRight="25dp"
             android:text="特别鸣谢" />
 
         <ImageView
