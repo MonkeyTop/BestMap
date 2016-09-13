@@ -76,10 +76,12 @@
         android:background="#ffffff"
         android:orientation="vertical">
 
-        <RadioButton
+        <CheckBox
+            android:id="@+id/cb_night"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:button="@null"
+            android:checked="false"
             android:drawableLeft="@mipmap/more_driven"
             android:drawablePadding="10dp"
             android:drawableRight="@drawable/drawable_btn"
