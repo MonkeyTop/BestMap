@@ -1,6 +1,7 @@
 package com.example.zyb.bestmap.mine.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import java.util.List;
  * Created by zyb on 2016/9/13.
  */
 public class NewsActivity extends Activity {
+    private ImageButton ib_back;
     ListView listView;
     List<NewsInfo> list;
     NewsInfo newsInfo;
@@ -53,6 +56,15 @@ public class NewsActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+        ib_back = (ImageButton) findViewById(R.id.ib_back);
+        ib_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewsActivity.this, MineActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         //初始化视图
         initView();
         //初始化数据
