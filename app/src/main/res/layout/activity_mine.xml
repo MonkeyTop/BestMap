@@ -85,6 +85,11 @@
             android:drawableRight="@drawable/drawable_btn"
             android:text="夜间模式" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/divide" />
+
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -93,13 +98,24 @@
             android:drawablePadding="10dp"
             android:text="新闻头条" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/divide" />
+
         <RadioButton
+            android:id="@+id/rb_suggest"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:button="@null"
             android:drawableLeft="@mipmap/more_suggest"
             android:drawablePadding="10dp"
             android:text="帮助与反馈" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/divide" />
 
         <RadioButton
             android:id="@+id/rb_thanks"
@@ -109,5 +125,10 @@
             android:drawableLeft="@mipmap/more_thanks"
             android:drawablePadding="10dp"
             android:text="特别鸣谢" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/divide" />
     </RadioGroup>
 </LinearLayout>
