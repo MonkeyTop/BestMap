@@ -19,6 +19,7 @@ import com.example.zyb.bestmap.home.HomeActivity;
 public class MineActivity extends Activity {
     private ImageButton ib_back;
     private CheckBox cb_night;
+    private RadioButton rb_news;
     private RadioButton rb_suggest;
     private RadioButton rb_thanks;
 
@@ -29,6 +30,7 @@ public class MineActivity extends Activity {
         //初始化控件
         ib_back = (ImageButton) findViewById(R.id.ib_back);
         cb_night = (CheckBox) findViewById(R.id.cb_night);
+        rb_news = (RadioButton) findViewById(R.id.rb_news);
         rb_suggest = (RadioButton) findViewById(R.id.rb_suggest);
         rb_thanks = (RadioButton) findViewById(R.id.rb_thanks);
         //操作返回控件点击事件
@@ -50,6 +52,14 @@ public class MineActivity extends Activity {
                 } else {
                     Toast.makeText(MineActivity.this, "已关闭夜间模式", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        //操作跳转头条新闻界面控件点击事件
+        rb_news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MineActivity.this, NewsActivity.class);
+                startActivity(intent);
             }
         });
         //操作跳转帮助与反馈界面控件点击事件

@@ -61,7 +61,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mine.activity.ThanksActivity">
+        <activity android:name=".mine.activity.NewsActivity">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -69,6 +69,13 @@
         </activity>
 
         <activity android:name=".mine.activity.SuggestActivity">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".mine.activity.ThanksActivity">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
