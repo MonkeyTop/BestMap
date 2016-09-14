@@ -18,6 +18,7 @@ import com.example.zyb.bestmap.home.HomeActivity;
  */
 public class MineActivity extends Activity {
     private ImageButton ib_back;
+    private RadioButton rb_user;
     private CheckBox cb_night;
     private RadioButton rb_news;
     private RadioButton rb_suggest;
@@ -29,6 +30,7 @@ public class MineActivity extends Activity {
         setContentView(R.layout.activity_mine);
         //初始化控件
         ib_back = (ImageButton) findViewById(R.id.ib_back);
+        rb_user = (RadioButton) findViewById(R.id.rb_user);
         cb_night = (CheckBox) findViewById(R.id.cb_night);
         rb_news = (RadioButton) findViewById(R.id.rb_news);
         rb_suggest = (RadioButton) findViewById(R.id.rb_suggest);
@@ -40,6 +42,14 @@ public class MineActivity extends Activity {
                 Intent intent = new Intent(MineActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        //切换登录注册界面
+        rb_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MineActivity.this, UserActivity.class);
+                startActivity(intent);
             }
         });
         //操作切换夜间模式控件点击事件
