@@ -1,7 +1,9 @@
 package com.example.zyb.bestmap.mine.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -40,6 +42,7 @@ public class RegisterActivity extends Activity {
     private String iCode;
     private int time = 60;
     private boolean flag = true;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,12 @@ public class RegisterActivity extends Activity {
         cb_check = (CheckBox) findViewById(R.id.cb_check);
         bt_register = (Button) findViewById(R.id.bt_register);
         tv_hint = (TextView) findViewById(R.id.tv_hint);
+        //创建SharedPreferences存储,Context.MODE_PRIVATE：只允许自己的程序访问
+        SharedPreferences sharedPreferences = getSharedPreferences("FILE_NAME", Context.MODE_PRIVATE);
+        String phone = sharedPreferences.getString("PHONE", "");
+        String pwd = sharedPreferences.getString("PWD", "");
+        et_phone.setText(phone);
+        et_password.setText(pwd);
         //返回键
         ib_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +114,15 @@ public class RegisterActivity extends Activity {
                             iCode = et_code.getText().toString().trim();
                             SMSSDK.submitVerificationCode("86", iPhone, iCode);
                             flag = false;
+                            editor = getSharedPreferences("FILE_NAME", MODE_PRIVATE).edit();
+                            String phone = et_phone.getText().toString();
+                            String password = et_password.getText().toString();
+                            editor.putString("PHONE", phone);
+                            editor.putString("PWD", password);
+                            editor.commit();
+                            //成功注册后跳转到登录界面
+                            Intent intent = new Intent(RegisterActivity.this, UserActivity.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(RegisterActivity.this, "请输入完整验证码", Toast.LENGTH_LONG).show();
                             et_code.requestFocus();
@@ -174,7 +192,7 @@ public class RegisterActivity extends Activity {
             if (result == SMSSDK.RESULT_COMPLETE) {
                 //短信注册成功后，返回MainActivity,然后提示新好友
                 if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功,验证通过
-                    Toast.makeText(getApplicationContext(), "验证码校验成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT).show();
                     handlerText.sendEmptyMessage(2);
                 } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {//服务器验证码发送成功
                     reminderText();
