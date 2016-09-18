@@ -79,6 +79,7 @@ public class RegisterActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity.this, AgreementActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         //获取验证码点击事件

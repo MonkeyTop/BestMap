@@ -57,6 +57,7 @@ public class UserActivity extends Activity {
                     Toast.makeText(UserActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(UserActivity.this, MineActivity.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(UserActivity.this, "账号或密码有错，请重新输入...", Toast.LENGTH_SHORT).show();
                 }
