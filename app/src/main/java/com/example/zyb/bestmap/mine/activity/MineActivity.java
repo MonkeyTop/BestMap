@@ -130,7 +130,7 @@ public class MineActivity extends Activity {
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         //创建当前界面的一个参数对象
         WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.6f;
+        lp.alpha = 0.5f;
         //把该参数对象设置进当前界面中
         getWindow().setAttributes(lp);
         //设置PopupWindow退出监听器
