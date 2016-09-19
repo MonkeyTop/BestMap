@@ -112,6 +112,7 @@ public class MineActivity extends Activity {
         View view = LayoutInflater.from(this).inflate(R.layout.item_tools, null);
         //初始化子布局控件
         RadioButton rb_computer = (RadioButton) view.findViewById(R.id.rb_computer);
+        RadioButton rb_light = (RadioButton) view.findViewById(R.id.rb_light);
         //得到当前屏幕的显示器对象
         Display display = getWindowManager().getDefaultDisplay();
         //创建一个Point点对象用来接收屏幕尺寸信息
@@ -143,11 +144,20 @@ public class MineActivity extends Activity {
                 getWindow().setAttributes(lp);
             }
         });
+        //设置popupwindow位置在屏幕正中央
         popupWindow.showAtLocation(this.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+        //子布局中控件点击事件
         rb_computer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MineActivity.this, "计算机", Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb_light.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MineActivity.this, LightActivity.class);
+                startActivity(intent);
             }
         });
     }

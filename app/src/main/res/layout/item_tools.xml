@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#363636">
 
     <RadioButton
         android:id="@+id/rb_computer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:button="@null"
-        android:drawablePadding="5dp"
+        style="@style/activity_mine_tools_RadioButton"
         android:drawableTop="@mipmap/icon_superfromto_navi"
-        android:text="计算机"
-        android:textColor="#ffffff" />
-</RelativeLayout>
+        android:text="计算机" />
+
+    <RadioButton
+        android:id="@+id/rb_light"
+        style="@style/activity_mine_tools_RadioButton"
+        android:drawableTop="@mipmap/icon_superfromto_subwaymap"
+        android:text="手电筒" />
+</LinearLayout>
