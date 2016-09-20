@@ -17,8 +17,8 @@
         android:text="手电筒" />
 
     <RadioButton
-        android:id="@+id/rb_a"
+        android:id="@+id/rb_calendar"
         style="@style/activity_mine_tools_RadioButton"
-        android:drawableTop="@mipmap/icon_superfromto_subwaymap"
-        android:text="手电筒" />
+        android:drawableTop="@mipmap/icon_superfromto_travel"
+        android:text="日历" />
 </LinearLayout>

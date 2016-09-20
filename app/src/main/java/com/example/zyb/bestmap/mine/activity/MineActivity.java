@@ -113,6 +113,7 @@ public class MineActivity extends Activity {
         //初始化子布局控件
         RadioButton rb_computer = (RadioButton) view.findViewById(R.id.rb_computer);
         RadioButton rb_light = (RadioButton) view.findViewById(R.id.rb_light);
+        RadioButton rb_calendar = (RadioButton) view.findViewById(R.id.rb_calendar);
         //得到当前屏幕的显示器对象
         Display display = getWindowManager().getDefaultDisplay();
         //创建一个Point点对象用来接收屏幕尺寸信息
@@ -158,6 +159,13 @@ public class MineActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MineActivity.this, LightActivity.class);
+                startActivity(intent);
+            }
+        });
+        rb_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MineActivity.this, CalendarActivity.class);
                 startActivity(intent);
             }
         });
