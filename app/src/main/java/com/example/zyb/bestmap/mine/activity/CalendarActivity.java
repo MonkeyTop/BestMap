@@ -35,10 +35,7 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
     private int month_c = 0;
     private int day_c = 0;
     private String currentDate = "";
-    private Bundle bd = null;//发送参数
     private Bundle bun = null;//接收参数
-    private String ruzhuTime;
-    private String lidianTime;
     private String state = "";
 
     public CalendarActivity() {
@@ -55,7 +52,6 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         ib_back = (ImageButton) findViewById(R.id.ib_back);
-        bd = new Bundle();//out
         bun = getIntent().getExtras();//in
         if (bun != null && bun.getString("state").equals("ruzhu")) {
             state = bun.getString("state");
@@ -107,11 +103,11 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        int gvFlag = 0;         //每次添加gridview到viewflipper中时给的标记
+        int gvFlag = 0;//每次添加gridview到viewflipper中时给的标记
         if (e1.getX() - e2.getX() > 120) {
             //像左滑动
-            addGridView();   //添加一个gridView
-            jumpMonth++;     //下一个月
+            addGridView();//添加一个gridView
+            jumpMonth++;//下一个月
             calV = new CalendarAdapter(this, getResources(), jumpMonth, jumpYear, year_c, month_c, day_c);
             gridView.setAdapter(calV);
             addTextToTopTextView(topText);
@@ -119,8 +115,8 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
             return true;
         } else if (e1.getX() - e2.getX() < -120) {
             //向右滑动
-            addGridView();   //添加一个gridView
-            jumpMonth--;     //上一个月
+            addGridView();//添加一个gridView
+            jumpMonth--;//上一个月
             calV = new CalendarAdapter(this, getResources(), jumpMonth, jumpYear, year_c, month_c, day_c);
             gridView.setAdapter(calV);
             gvFlag++;
@@ -142,13 +138,12 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()) {
             case Menu.FIRST:
-                //跳转到今天
+                jumpMonth = 0;    //跳转到今天
                 int xMonth = jumpMonth;
                 int xYear = jumpYear;
                 int gvFlag = 0;
-                jumpMonth = 0;
                 jumpYear = 0;
-                addGridView();   //添加一个gridView
+                addGridView();//添加一个gridView
                 year_c = Integer.parseInt(currentDate.split("-")[0]);
                 month_c = Integer.parseInt(currentDate.split("-")[1]);
                 day_c = Integer.parseInt(currentDate.split("-")[2]);
