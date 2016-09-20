@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -184,32 +183,6 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return CalendarActivity.this.gestureDetector.onTouchEvent(event);
-            }
-        });
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //gridView中的每一个item的点击事件
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                //点击任何一个item，得到这个item的日期(排除点击的是周日到周六(点击不响应))
-                int startPosition = calV.getStartPositon();
-                int endPosition = calV.getEndPosition();
-                if (startPosition <= position + 7 && position <= endPosition - 7) {
-                    String scheduleDay = calV.getDateByClickItem(position).split("\\.")[0];  //这一天的阳历
-                    String scheduleYear = calV.getShowYear();
-                    String scheduleMonth = calV.getShowMonth();
-                    ruzhuTime = scheduleMonth + "月" + scheduleDay + "日";
-                    lidianTime = scheduleMonth + "月" + scheduleDay + "日";
-                    Intent intent = new Intent();
-                    if (state.equals("ruzhu")) {
-                        bd.putString("ruzhu", ruzhuTime);
-                        System.out.println("ruzhuuuuuu" + bd.getString("ruzhu"));
-                    } else if (state.equals("lidian")) {
-                        bd.putString("lidian", lidianTime);
-                    }
-                    intent.putExtras(bd);
-                    startActivity(intent);
-                    finish();
-                }
             }
         });
     }
