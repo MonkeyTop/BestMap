@@ -56,14 +56,6 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         ib_back = (ImageButton) findViewById(R.id.ib_back);
-        ib_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CalendarActivity.this, MineActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         bd = new Bundle();//out
         bun = getIntent().getExtras();//in
         if (bun != null && bun.getString("state").equals("ruzhu")) {
@@ -79,6 +71,14 @@ public class CalendarActivity extends Activity implements GestureDetector.OnGest
         gridView.setAdapter(calV);
         topText = (TextView) findViewById(R.id.tv_month);
         addTextToTopTextView(topText);
+        ib_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalendarActivity.this, MineActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
