@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:src="@mipmap/title_back_grey" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:paddingLeft="90dp"
+            android:text="计算器"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/computer_background"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#363636"
+            android:cursorVisible="false"
+            android:digits="12334567890."
+            android:hint="0.0"
+            android:padding="15dp"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_num7"
+                style="@style/activity_computer_Button"
+                android:layout_weight="1"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/bt_num8"
+                style="@style/activity_computer_Button"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/bt_num9"
+                style="@style/activity_computer_Button"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/bt_add"
+                style="@style/activity_computer_Button"
+                android:background="#ff8247"
+                android:text="+" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_num4"
+                style="@style/activity_computer_Button"
+                android:layout_weight="1"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/bt_num5"
+                style="@style/activity_computer_Button"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/bt_num6"
+                style="@style/activity_computer_Button"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/bt_sub"
+                style="@style/activity_computer_Button"
+                android:background="#ff8247"
+                android:text="-" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_num1"
+                style="@style/activity_computer_Button"
+                android:layout_weight="1"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/bt_num2"
+                style="@style/activity_computer_Button"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/bt_num3"
+                style="@style/activity_computer_Button"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/bt_multiply"
+                style="@style/activity_computer_Button"
+                android:background="#ff8247"
+                android:text="x" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_num0"
+                style="@style/activity_computer_Button"
+                android:layout_weight="1"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/bt_point"
+                style="@style/activity_computer_Button"
+                android:text="." />
+
+            <Button
+                android:id="@+id/bt_equal"
+                style="@style/activity_computer_Button"
+                android:text="=" />
+
+            <Button
+                android:id="@+id/bt_division"
+                style="@style/activity_computer_Button"
+                android:background="#ff8247"
+                android:text="/" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_clear"
+                style="@style/activity_computer_Button"
+                android:background="#ff8247"
+                android:text="c" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

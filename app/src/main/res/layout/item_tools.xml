@@ -15,4 +15,10 @@
         style="@style/activity_mine_tools_RadioButton"
         android:drawableTop="@mipmap/icon_superfromto_subwaymap"
         android:text="手电筒" />
+
+    <RadioButton
+        android:id="@+id/rb_a"
+        style="@style/activity_mine_tools_RadioButton"
+        android:drawableTop="@mipmap/icon_superfromto_subwaymap"
+        android:text="手电筒" />
 </LinearLayout>

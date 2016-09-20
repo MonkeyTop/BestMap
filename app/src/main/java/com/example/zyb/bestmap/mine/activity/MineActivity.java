@@ -150,7 +150,8 @@ public class MineActivity extends Activity {
         rb_computer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MineActivity.this, "计算机", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MineActivity.this, ComputerActivity.class);
+                startActivity(intent);
             }
         });
         rb_light.setOnClickListener(new View.OnClickListener() {
