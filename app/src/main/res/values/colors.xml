@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    //日历所需颜色
     <color name="white">#ffffffff</color>
     <color name="calendar_background">#e3eef4</color>
     <color name="selection">#b1dce2ff</color>
@@ -21,4 +21,15 @@
     <color name="Text">#603b07</color>
     <color name="ToDayText">#ffc2a53d</color>
     <color name="Noteback">#FFCC99</color>
+    //违章查询所需颜色
+    <color name="csy_bg_body">#ffe9e9e9</color>
+    <color name="csy_row_on">#fff0f0f0</color>
+    <color name="csy_border">#ffd0d0d0</color>
+    <color name="csy_green">#ff3caa0f</color>
+    <color name="csy_green_on">#ff28780a</color>
+    <color name="csy_blue">#ff0a7dd2</color>
+    <color name="csy_blue_on">#ff0a64aa</color>
+    <color name="csy_label">#ff969696</color>
+    <color name="csy_text">#ff555555</color>
+    <color name="csy_hint">#ffc6c6c6</color>
 </resources>

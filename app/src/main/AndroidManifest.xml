@@ -37,6 +37,8 @@
         android:theme="@style/AppTheme">
         <!--配置Service-->
         <service android:name="com.amap.api.location.APSService" />
+        <!--配置违章查询API-Service-->
+        <service android:name="com.cheshouye.api.client.WeizhangIntentService" />
         <!--添加AppKey-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
@@ -134,6 +136,41 @@
         </activity>
 
         <activity android:name=".mine.activity.CalendarActivity">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".mine.activity.ViolationActivity">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".mine.activity.ShortNameList">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".mine.activity.WeizhangResult">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".mine.activity.ProvinceList">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".mine.activity.CityList">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
