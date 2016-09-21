@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/lay_title"
+        android:id="@+id/ly_title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#ffffff"
@@ -28,126 +28,76 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="8"
-            android:paddingLeft="60dp"
-            android:text="请选择日期"
+            android:paddingLeft="90dp"
+            android:text="日历"
             android:textColor="#000000"
             android:textSize="25dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_today"
+        <Button
+            android:id="@+id/bt_today"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:layout_weight="1.5"
-            android:text="今天"
+            android:layout_weight="2"
+            android:background="#ff6a6a"
+            android:text="今天" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/message_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/week_bg" />
+
+        <ImageView
+            android:id="@+id/left_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left_selector"
+            android:paddingTop="7dp" />
+
+        <TextView
+            android:id="@+id/day_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="2016年9月21号"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/right_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/right_selector"
+            android:paddingTop="7dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/calendar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff6a6a"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:text="极客地图，明天会更好！"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ff394147"
-        android:gravity="center_vertical">
-
-        <LinearLayout
-            android:id="@+id/btn_prev_month"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/left_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:duplicateParentState="true"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="xxxx年14月"
-                android:textColor="#ffffff"
-                android:textSize="21dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_next_month"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/right_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:duplicateParentState="true"
-                android:textSize="16dp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:background="#ff8091a8">
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周日" />
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周一" />
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周二" />
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周三" />
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周四" />
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周五" />
-
-        <TextView
-            style="@style/activity_date_TextView"
-            android:text="周六" />
-    </LinearLayout>
-
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:clickable="true"
-        android:clipChildren="true"
-        android:columnWidth="55dp"
-        android:horizontalSpacing="1dp"
-        android:listSelector="@null"
-        android:numColumns="7"
-        android:paddingBottom="1dp"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="1dp" />
 </LinearLayout>
