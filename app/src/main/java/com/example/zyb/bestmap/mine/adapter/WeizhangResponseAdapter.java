@@ -40,14 +40,14 @@ public class WeizhangResponseAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = View.inflate(mContext, R.layout.csy_listitem_result, null);
+        View view = View.inflate(mContext, R.layout.query_listitem_result, null);
         WeizhangResponseHistoryJson model = mDate.get(position);
         TextView wz_time = (TextView) view.findViewById(R.id.wz_time);
         TextView wz_money = (TextView) view.findViewById(R.id.wz_money);
         TextView wz_addr = (TextView) view.findViewById(R.id.wz_addr);
         TextView wz_info = (TextView) view.findViewById(R.id.wz_info);
         wz_time.setText(model.getOccur_date());
-        wz_money.setText("��" + model.getFen() + "��, ��" + model.getMoney() + "Ԫ");
+        wz_money.setText("罚分：" + model.getFen() + "，罚金：" + model.getMoney());
         wz_addr.setText(model.getOccur_area());
         wz_info.setText(model.getInfo());
         return view;

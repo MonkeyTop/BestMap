@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/titlebar"
+    android:id="@+id/rl_title"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/csy_btn_h"
+    android:layout_height="50dp"
     android:layout_alignParentTop="true"
-    android:background="@color/csy_green"
-    android:paddingLeft="@dimen/csy_pd"
-    android:paddingRight="@dimen/csy_pd">
+    android:background="@color/query_blue"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <Button
-        android:id="@+id/btnBack"
-        android:layout_width="50dp"
+        android:id="@+id/bt_back"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
@@ -20,17 +20,17 @@
         android:gravity="center_vertical"
         android:text="返回"
         android:textColor="#ffffff"
-        android:textSize="14sp"
+        android:textSize="15dp"
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/txtTitle"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:gravity="center"
         android:text="违章查询"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
 </RelativeLayout>

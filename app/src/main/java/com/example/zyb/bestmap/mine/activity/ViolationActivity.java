@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +24,14 @@ import com.example.zyb.bestmap.R;
  * Created by zyb on 2016/9/21.
  */
 public class ViolationActivity extends Activity {
-    private String defaultChepai = "��";
+    private String defaultChepai = "";
     private TextView short_name;
     private TextView query_city;
-    private View btn_cpsz;
+    private RelativeLayout rl_nickname;
     private Button btn_query;
-    private EditText chepai_number;
-    private EditText chejia_number;
-    private EditText engine_number;
+    private EditText chepai_number;//车牌号
+    private EditText chejia_number;//车架号
+    private EditText engine_number;//发动机号
     private View popXSZ;
 
     @Override
@@ -39,24 +39,24 @@ public class ViolationActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_violation);
-        TextView txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("����Υ�²�ѯ");
-        Log.d("��ʼ���������", "");
-        Intent weizhangIntent = new Intent(this, WeizhangIntentService.class);
-        weizhangIntent.putExtra("appId", 2145);
-        weizhangIntent.putExtra("appKey", "5b47d5febb23bbcc4b8bf1c17e2697de");
-        startService(weizhangIntent);
-        query_city = (TextView) findViewById(R.id.cx_city);
-        chepai_number = (EditText) findViewById(R.id.chepai_number);
-        chejia_number = (EditText) findViewById(R.id.chejia_number);
-        engine_number = (EditText) findViewById(R.id.engine_number);
-        short_name = (TextView) findViewById(R.id.chepai_sz);
-        btn_cpsz = (View) findViewById(R.id.btn_cpsz);
-        btn_query = (Button) findViewById(R.id.btn_query);
-        btn_cpsz.setOnClickListener(new View.OnClickListener() {
+        Intent intent = new Intent(ViolationActivity.this, WeizhangIntentService.class);
+        //SDK所需id号和key值
+        intent.putExtra("appId", 2145);
+        intent.putExtra("appKey", "5b47d5febb23bbcc4b8bf1c17e2697de");
+        //开通查询服务
+        startService(intent);
+        //初始化控件
+        query_city = (TextView) findViewById(R.id.tv_queryCity);
+        chepai_number = (EditText) findViewById(R.id.et_plateNumber);
+        chejia_number = (EditText) findViewById(R.id.et_frameNumber);
+        engine_number = (EditText) findViewById(R.id.et_engineNumber);
+        short_name = (TextView) findViewById(R.id.tv_nickName);
+        rl_nickname = (RelativeLayout) findViewById(R.id.rl_nickName);
+        btn_query = (Button) findViewById(R.id.bt_query);
+        rl_nickname.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(ViolationActivity.this, ShortNameList.class);
+                intent.setClass(ViolationActivity.this, NickNameActivity.class);
                 intent.putExtra("select_short_name", short_name.getText());
                 startActivityForResult(intent, 0);
             }
@@ -64,7 +64,7 @@ public class ViolationActivity extends Activity {
         query_city.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(ViolationActivity.this, ProvinceList.class);
+                intent.setClass(ViolationActivity.this, ProvinceActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -93,13 +93,13 @@ public class ViolationActivity extends Activity {
                 intent.putExtras(bundle);
                 boolean result = checkQueryItem(car);
                 if (result) {
-                    intent.setClass(ViolationActivity.this, WeizhangResult.class);
+                    intent.setClass(ViolationActivity.this, ViolationResultActivity.class);
                     startActivity(intent);
                 }
             }
         });
         short_name.setText(defaultChepai);
-        popXSZ = (View) findViewById(R.id.popXSZ);
+        popXSZ = (View) findViewById(R.id.fl_drivingLicense);
         popXSZ.setOnTouchListener(new popOnTouchListener());
         hideShowXSZ();
     }
@@ -116,13 +116,7 @@ public class ViolationActivity extends Activity {
                 break;
             case 1:
                 Bundle bundle1 = data.getExtras();
-                // String cityName = bundle1.getString("city_name");
                 String cityId = bundle1.getString("city_id");
-                // query_city.setText(cityName);
-                // query_city.setTag(cityId);
-                // InputConfigJson inputConfig =
-                // WeizhangClient.getInputConfig(Integer.parseInt(cityId));
-                // System.out.println(inputConfig.toJson());
                 setQueryItem(Integer.parseInt(cityId));
                 break;
         }
@@ -136,17 +130,17 @@ public class ViolationActivity extends Activity {
             query_city.setTag(cityId);
             int len_chejia = cityConfig.getClassno();
             int len_engine = cityConfig.getEngineno();
-            View row_chejia = (View) findViewById(R.id.row_chejia);
-            View row_engine = (View) findViewById(R.id.row_engine);
+            View row_chejia = (View) findViewById(R.id.ll_frameNumber);
+            View row_engine = (View) findViewById(R.id.ll_engineNumber);
             if (len_chejia == 0) {
                 row_chejia.setVisibility(View.GONE);
             } else {
                 row_chejia.setVisibility(View.VISIBLE);
                 setMaxlength(chejia_number, len_chejia);
                 if (len_chejia == -1) {
-                    chejia_number.setHint("�������������ܺ�");
+                    chejia_number.setHint("请输入车架号");
                 } else if (len_chejia > 0) {
-                    chejia_number.setHint("�����복�ܺź�" + len_chejia + "λ");
+                    chejia_number.setHint("" + len_chejia + "");
                 }
             }
             if (len_engine == 0) {
@@ -155,9 +149,9 @@ public class ViolationActivity extends Activity {
                 row_engine.setVisibility(View.VISIBLE);
                 setMaxlength(engine_number, len_engine);
                 if (len_engine == -1) {
-                    engine_number.setHint("��������������������");
+                    engine_number.setHint("");
                 } else if (len_engine > 0) {
-                    engine_number.setHint("�����뷢������" + len_engine + "λ");
+                    engine_number.setHint("" + len_engine + "");
                 }
             }
         }
@@ -165,11 +159,11 @@ public class ViolationActivity extends Activity {
 
     private boolean checkQueryItem(CarInfo car) {
         if (car.getCity_id() == 0) {
-            Toast.makeText(ViolationActivity.this, "��ѡ���ѯ��", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ViolationActivity.this, "请选择查询地", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (car.getChepai_no().length() != 7) {
-            Toast.makeText(ViolationActivity.this, "������ĳ��ƺ�����", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ViolationActivity.this, "请输入车牌号", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (car.getCity_id() > 0) {
@@ -195,7 +189,7 @@ public class ViolationActivity extends Activity {
             }
             if (engineno > 0) {
                 if (car.getEngine_no().equals("")) {
-                    Toast.makeText(ViolationActivity.this, "���뷢�����Ų�Ϊ��", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViolationActivity.this, "请输入发动机后6位", Toast.LENGTH_SHORT).show();
                     return false;
                 }
                 if (car.getEngine_no().length() != engineno) {
@@ -237,9 +231,9 @@ public class ViolationActivity extends Activity {
     }
 
     private void hideShowXSZ() {
-        View btn_help1 = (View) findViewById(R.id.ico_chejia);
-        View btn_help2 = (View) findViewById(R.id.ico_engine);
-        Button btn_closeXSZ = (Button) findViewById(R.id.btn_closeXSZ);
+        View btn_help1 = (View) findViewById(R.id.iv_frameNumber);
+        View btn_help2 = (View) findViewById(R.id.iv_engineNumber);
+        Button btn_closeXSZ = (Button) findViewById(R.id.bt_close);
         btn_help1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 popXSZ.setVisibility(View.VISIBLE);

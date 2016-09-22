@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/csy_titlebar" />
+    <include layout="@layout/query_title" />
 
     <TextView
         android:id="@+id/list_tip"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/csy_tip_h"
+        android:layout_height="30dp"
         android:gravity="center"
         android:textColor="@color/csy_label"
         android:textSize="13sp" />
@@ -18,6 +18,6 @@
         android:id="@+id/lv_1ist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@color/csy_border"
+        android:divider="@color/query_border"
         android:dividerHeight="1px" />
 </LinearLayout>

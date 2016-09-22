@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -26,7 +25,7 @@ import java.util.List;
 /**
  * @author paul
  */
-public class WeizhangResult extends Activity {
+public class ViolationResultActivity extends Activity {
     final Handler cwjHandler = new Handler();
     WeizhangResponseJson info = null;
     private View popLoader;
@@ -34,13 +33,12 @@ public class WeizhangResult extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.csy_activity_result);
-        //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.csy_titlebar);
-        TextView txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("Υ�²�ѯ���");
-        Button btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setVisibility(View.VISIBLE);
-        btnBack.setOnClickListener(new OnClickListener() {
+        setContentView(R.layout.query_activity_result);
+        TextView txtTitle = (TextView) findViewById(R.id.tv_title);
+        txtTitle.setText("");
+        Button bt_back = (Button) findViewById(R.id.bt_back);
+        bt_back.setVisibility(View.VISIBLE);
+        bt_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -57,6 +55,7 @@ public class WeizhangResult extends Activity {
         CityInfoJson citys = WeizhangClient.getCity(car.getCity_id());
         query_city.setText(citys.getCity_name());
     }
+
     public void step4(final CarInfo car) {
         new Thread() {
             @Override
@@ -70,6 +69,7 @@ public class WeizhangResult extends Activity {
             }
         }.start();
     }
+
     final Runnable mUpdateResults = new Runnable() {
         public void run() {
             updateUI();
@@ -81,12 +81,11 @@ public class WeizhangResult extends Activity {
         TextView result_title = (TextView) findViewById(R.id.result_title);
         ListView result_list = (ListView) findViewById(R.id.result_list);
         popLoader.setVisibility(View.GONE);
-        Log.d("��������", info.toJson());
         if (info.getStatus() == 2001) {
             result_null.setVisibility(View.GONE);
             result_title.setVisibility(View.VISIBLE);
             result_list.setVisibility(View.VISIBLE);
-            result_title.setText("��Υ��" + info.getCount() + "��, ��" + info.getTotal_score() + "��, ���� " + info.getTotal_money() + "Ԫ");
+            result_title.setText("违规次数：" + info.getCount() + "，" + "处罚总分：" + info.getTotal_score() + "，" + "罚款总额：" + info.getTotal_money());
             WeizhangResponseAdapter mAdapter = new WeizhangResponseAdapter(this, getData());
             result_list.setAdapter(mAdapter);
         } else {
@@ -107,7 +106,7 @@ public class WeizhangResult extends Activity {
             } else if (info.getStatus() == 5008) {
                 result_null.setText("����ĳ�����Ϣ�������֤����������");
             } else {
-                result_null.setText("��ϲ, û�в鵽Υ�¼�¼��");
+                result_null.setText("查询信息错误");
             }
             result_title.setVisibility(View.GONE);
             result_list.setVisibility(View.GONE);

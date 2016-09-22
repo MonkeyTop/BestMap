@@ -149,28 +149,28 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mine.activity.ShortNameList">
+        <activity android:name=".mine.activity.NickNameActivity">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".mine.activity.WeizhangResult">
+        <activity android:name=".mine.activity.ViolationResultActivity">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".mine.activity.ProvinceList">
+        <activity android:name=".mine.activity.ProvinceActivity">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".mine.activity.CityList">
+        <activity android:name=".mine.activity.CityActivity">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />

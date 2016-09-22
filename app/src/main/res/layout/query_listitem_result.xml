@@ -13,7 +13,7 @@
         android:layout_marginTop="3dp"
         android:background="@drawable/csy_listitem_result"
         android:orientation="vertical"
-        android:padding="@dimen/csy_pd">
+        android:padding="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,8 +26,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
-                android:textColor="@color/csy_text"
-                android:textSize="@dimen/csy_text_ts" />
+                android:textColor="@color/query_nickName"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/wz_money"
@@ -37,17 +37,17 @@
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
                 android:textColor="#ffff0000"
-                android:textSize="@dimen/csy_text_ts" />
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/csy_pd">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/lab_address"
-                android:layout_width="@dimen/csy_label_w"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:text="违章地点"
@@ -57,18 +57,18 @@
                 android:id="@+id/wz_addr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/csy_label_w"
-                android:textColor="@color/csy_text" />
+                android:layout_marginLeft="70dp"
+                android:textColor="@color/query_nickName" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/csy_pd">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/lab_info"
-                android:layout_width="@dimen/csy_label_w"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:text="违章行为"
@@ -78,8 +78,8 @@
                 android:id="@+id/wz_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/csy_label_w"
-                android:textColor="@color/csy_text" />
+                android:layout_marginLeft="70dp"
+                android:textColor="@color/query_nickName" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

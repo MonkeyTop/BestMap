@@ -18,8 +18,8 @@ import android.widget.Toast;
 
 import com.example.zyb.bestmap.R;
 
-public class ShortNameList extends Activity {
-    private GridView gv;
+public class NickNameActivity extends Activity {
+    private GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,27 +28,27 @@ public class ShortNameList extends Activity {
         Log.d("select_short_name...", short_name);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.csy_activity_shortname);
+        setContentView(R.layout.query_activity_shortname);
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.csy_titlebar);
-        TextView txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("ѡ�������ڵ�");
-        Button btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setVisibility(View.VISIBLE);
-        btnBack.setOnClickListener(new OnClickListener() {
+        TextView txtTitle = (TextView) findViewById(R.id.tv_title);
+        txtTitle.setText("请选择车号所在户地");
+        Button bt_back = (Button) findViewById(R.id.bt_back);
+        bt_back.setVisibility(View.VISIBLE);
+        bt_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        gv = (GridView) findViewById(R.id.gv_1);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.csy_listitem_shortname, getDate());
-        gv.setAdapter(adapter);
-        gv.setOnItemClickListener(new OnItemClickListener() {
+        gridView = (GridView) findViewById(R.id.gv_1);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.query_listitem_shortname, getDate());
+        gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String txt = adapter.getItem(position);
                 if (txt.length() > 0) {
-                    Toast.makeText(ShortNameList.this, txt, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NickNameActivity.this, txt, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.putExtra("short_name", txt);
                     setResult(0, intent);
@@ -58,9 +58,9 @@ public class ShortNameList extends Activity {
         });
     }
 
+    //全国各省别称集合
     private String[] getDate() {
-        return new String[]{"��", "��", "��", "��", "��", "��", "��", "��", "��", "��",
-                "��", "��", "��", "��", "³", "��", "��", "��", "��", "��", "��", "��",
-                "��", "��", "��", "��", "ԥ", "��", "��", "��", "��", ""};
+        return new String[]{"京", "津", "冀", "晋", "蒙", "辽", "吉", "黑", "沪", "苏", "浙", "皖", "闽", "赣", "鲁", "豫", "鄂",
+                "湘", "粤", "桂", "琼", "渝", "川", "贵", "云", "藏", "陕", "甘", "青", "宁", "新",""};
     }
 }

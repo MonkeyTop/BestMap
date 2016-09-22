@@ -21,7 +21,7 @@ import com.example.zyb.bestmap.mine.info.ViolationInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CityList extends Activity {
+public class CityActivity extends Activity {
     private ListView lv_list;
     private ListAdapter mAdapter;
     private String provinceName;
@@ -30,13 +30,13 @@ public class CityList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.csy_activity_citys);
+        setContentView(R.layout.query_activity_citys);
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.csy_titlebar);
-        TextView txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("ѡ���ѯ��-����");
-        Button btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setVisibility(View.VISIBLE);
-        btnBack.setOnClickListener(new OnClickListener() {
+        TextView txtTitle = (TextView) findViewById(R.id.tv_title);
+        txtTitle.setText("");
+        Button bt_back = (Button) findViewById(R.id.bt_back);
+        bt_back.setVisibility(View.VISIBLE);
+        bt_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -65,7 +65,7 @@ public class CityList extends Activity {
         List<ViolationInfo> list = new ArrayList<>();
         List<CityInfoJson> cityList = WeizhangClient.getCitys(Integer.parseInt(provinceId));
         TextView txtListTip = (TextView) findViewById(R.id.list_tip);
-        txtListTip.setText(provinceName + "�ѿ�ͨ" + cityList.size() + "������, �������н�½������");
+        txtListTip.setText(provinceName + "" + cityList.size() + "");
         for (CityInfoJson cityInfoJson : cityList) {
             String cityName = cityInfoJson.getCity_name();
             int cityId = cityInfoJson.getCity_id();

@@ -40,7 +40,7 @@ public class ListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = View.inflate(mContext, R.layout.csy_listitem_citys, null);
+        View view = View.inflate(mContext, R.layout.query_listitem_citys, null);
         ViolationInfo model = mDate.get(position);
         TextView txt_name = (TextView) view.findViewById(R.id.txt_name);
         //ImageView image=(ImageView)view.findViewById(R.id.iv_1);

@@ -5,7 +5,7 @@
 
     <include
         android:id="@+id/titbar"
-        layout="@layout/csy_titlebar" />
+        layout="@layout/query_title" />
 
     <!-- 查询内容 -->
     <LinearLayout
@@ -16,14 +16,14 @@
         android:layout_below="@id/titbar"
         android:background="@android:color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/csy_pd">
+        android:padding="10dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="@string/csy_chepai_lab"
+            android:text="车牌号"
             android:textColor="@color/csy_label" />
 
         <TextView
@@ -32,15 +32,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center_vertical"
-            android:textColor="@color/csy_text"
-            android:textSize="@dimen/csy_text_ts" />
+            android:textColor="@color/query_nickName"
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="@string/csy_cxdz_lab"
+            android:text="查询地"
             android:textColor="@color/csy_label" />
 
         <TextView
@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center_vertical"
-            android:textColor="@color/csy_text"
-            android:textSize="@dimen/csy_text_ts" />
+            android:textColor="@color/query_nickName"
+            android:textSize="15dp" />
     </LinearLayout>
 
     <!-- 结果标题 -->
@@ -63,9 +63,9 @@
         android:layout_marginTop="1dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:padding="@dimen/csy_pd"
+        android:padding="10dp"
         android:textColor="@color/csy_label"
-        android:textSize="@dimen/csy_text_ts" />
+        android:textSize="15dp" />
 
     <!-- 结果列表 -->
     <ListView
@@ -87,8 +87,8 @@
         android:layout_marginTop="80dp"
         android:gravity="center"
         android:text="恭喜, 没有查到违章记录！"
-        android:textColor="@color/csy_text"
-        android:textSize="@dimen/csy_title_ts"
+        android:textColor="@color/query_nickName"
+        android:textSize="18dp"
         android:visibility="gone" />
 
     <!-- 查询中 -->
@@ -114,7 +114,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="正在查询, 请稍候 ..."
-            android:textColor="@color/csy_text"
-            android:textSize="@dimen/csy_tip_ts" />
+            android:textColor="@color/query_nickName"
+            android:textSize="15dp" />
     </FrameLayout>
 </RelativeLayout>

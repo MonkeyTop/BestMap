@@ -5,9 +5,9 @@
     
     <RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/csy_btn_h"
-		android:paddingLeft="@dimen/csy_mg"
-    	android:paddingRight="@dimen/csy_mg" 
+	    android:layout_height="50dp"
+		android:paddingLeft="15dp"
+    	android:paddingRight="15dp"
 	    android:background="@drawable/csy_listitem_citys" >
 	
 	    <TextView
@@ -17,14 +17,14 @@
 	        android:layout_centerVertical="true"
 	        android:layout_alignParentLeft="true"
 	        android:gravity="center_vertical"
-	        android:textColor="@color/csy_text"
-	        android:textSize="@dimen/csy_text_ts" />   
+	        android:textColor="@color/query_nickName"
+	        android:textSize="16sp" />
 	
 	    <ImageView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentRight="true"
 	        android:layout_centerVertical="true"
-	        android:src="@drawable/csy_arr_right" />
+	        android:src="@drawable/query_array_right" />
 	</RelativeLayout>
 </LinearLayout>

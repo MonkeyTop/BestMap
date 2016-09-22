@@ -21,22 +21,21 @@ import com.example.zyb.bestmap.mine.info.ViolationInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProvinceList extends Activity {
+public class ProvinceActivity extends Activity {
     private ListView lv_list;
     private ListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.csy_activity_citys);
+        setContentView(R.layout.query_activity_citys);
         //getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.csy_titlebar);
-        TextView txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("ѡ���ѯ��-ʡ��");
-        Button btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setVisibility(View.VISIBLE);
-        btnBack.setOnClickListener(new OnClickListener() {
+        TextView txtTitle = (TextView) findViewById(R.id.tv_title);
+        txtTitle.setText("");
+        Button bt_back = (Button) findViewById(R.id.bt_back);
+        bt_back.setVisibility(View.VISIBLE);
+        bt_back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -52,7 +51,7 @@ public class ProvinceList extends Activity {
                 Intent intent = new Intent();
                 intent.putExtra("province_name", txt_name.getText());
                 intent.putExtra("province_id", txt_name.getTag().toString());
-                intent.setClass(ProvinceList.this, CityList.class);
+                intent.setClass(ProvinceActivity.this, CityActivity.class);
                 startActivityForResult(intent, 20);
             }
         });
@@ -62,7 +61,7 @@ public class ProvinceList extends Activity {
         List<ViolationInfo> list = new ArrayList<>();
         List<ProvinceInfoJson> provinceList = WeizhangClient.getAllProvince();
         TextView txtListTip = (TextView) findViewById(R.id.list_tip);
-        txtListTip.setText("ȫ���ѿ�ͨ" + provinceList.size() + "��ʡ��, ����ʡ��½������");
+        txtListTip.setText("" + provinceList.size() + "");
         for (ProvinceInfoJson provinceInfoJson : provinceList) {
             String provinceName = provinceInfoJson.getProvinceName();
             int provinceId = provinceInfoJson.getProvinceId();

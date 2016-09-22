@@ -56,44 +56,50 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">#ffffff</item>
     </style>
-    <!--违章地-->
-    <style name="csy_row">
+    <!--查询表单LinearLayout共同属性设置-->
+    <style name="query_row">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/csy_row_h</item>
-        <item name="android:paddingLeft">@dimen/csy_pd</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:paddingLeft">10dp</item>
     </style>
-    <!--违章地TextView-->
-    <style name="csy_row_label">
+
+    <style name="query_LinearLayout" parent="query_row">
+        <item name="android:background">@drawable/query_form_row</item>
+    </style>
+    <!--查询表单RelativeLayout共同属性设置-->
+    <style name="query_RelativeLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!--查询表单TextView共同属性-->
+    <style name="query_form_TextView">
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">@dimen/csy_label_w</item>
+        <item name="android:layout_width">70dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/csy_label</item>
+        <item name="android:textColor">#ff969696</item>
     </style>
 
     <style name="csy_textbox">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/csy_text</item>
-        <item name="android:textColorHint">@color/csy_hint</item>
-        <item name="android:background">@drawable/csy_textbox</item>
-        <item name="android:textSize">@dimen/csy_text_ts</item>
+        <item name="android:textColor">@color/query_nickName</item>
+        <item name="android:textColorHint">@color/query_hint</item>
+        <item name="android:background">@drawable/query_textbox</item>
+        <item name="android:textSize">15dp</item>
     </style>
 
-    <style name="csy_textbox1" parent="csy_textbox">
-        <item name="android:layout_marginRight">@dimen/csy_icon_w</item>
+    <style name="query_textview_hint" parent="csy_textbox">
+        <item name="android:layout_marginRight">40dp</item>
     </style>
-
-    <style name="csy_row_icon">
+    <!--query_imageview共同属性设置-->
+    <style name="query_row_icon">
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">@dimen/csy_icon_w</item>
+        <item name="android:layout_width">40dp</item>
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:scaleType">center</item>
-    </style>
-
-    <style name="csy_row1" parent="csy_row">
-        <item name="android:background">@drawable/csy_form_row</item>
     </style>
 </resources>
