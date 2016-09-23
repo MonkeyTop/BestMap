@@ -36,4 +36,15 @@
     <!--车牌号户地别称颜色-->
     <color name="query_nickName">#ff555555</color>
     <color name="query_hint">#ffc6c6c6</color>
+    //日夜切换所需颜色
+    <color name="white_dark">#f3f3f3</color>
+    <color name="gray_light">#cccccc</color>
+    <color name="gray">#777</color>
+    <color name="gray_dark">#383838</color>
+    <color name="green_light">#8e9ea4</color>
+    <color name="green">#34515c</color>
+    <color name="green_dark">#1e3e4a</color>
+    <color name="night_mask">#90000000</color>
+    //高德地图所需颜色
+    <color name="gary">#898989</color>
 </resources>

@@ -39,6 +39,7 @@
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rb_offlinemap"
             style="@style/activity_mine_RadioButton"
             android:drawableTop="@mipmap/route_drive_toolbox_offlinemap"
             android:text="离线地图包" />

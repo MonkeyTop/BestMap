@@ -27,6 +27,7 @@ import com.example.zyb.bestmap.home.HomeActivity;
 public class MineActivity extends Activity {
     private ImageButton ib_back;
     private RadioButton rb_user;
+    private RadioButton rb_offlinemap;
     private RadioButton rb_violation;
     private RadioButton rb_tools;
     private CheckBox cb_night;
@@ -41,6 +42,7 @@ public class MineActivity extends Activity {
         //初始化控件
         ib_back = (ImageButton) findViewById(R.id.ib_back);
         rb_user = (RadioButton) findViewById(R.id.rb_user);
+        rb_offlinemap = (RadioButton) findViewById(R.id.rb_offlinemap);
         rb_violation = (RadioButton) findViewById(R.id.rb_violation);
         rb_tools = (RadioButton) findViewById(R.id.rb_tools);
         cb_night = (CheckBox) findViewById(R.id.cb_night);
@@ -61,6 +63,14 @@ public class MineActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MineActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
+        //离线宝地图下载控件
+        rb_offlinemap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MineActivity.this, OfflineMapActivity.class);
                 startActivity(intent);
             }
         });

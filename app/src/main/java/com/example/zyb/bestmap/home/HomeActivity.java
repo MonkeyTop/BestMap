@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
@@ -30,6 +31,7 @@ import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity {
     private EditText et_search;
+    private Button bt_night;
     private RadioButton rb_nearby;
     private RadioButton rb_route;
     private RadioButton rb_mine;
@@ -91,6 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         //初始化搜索框控件
         et_search = (EditText) findViewById(R.id.et_search);
+        bt_night = (Button) findViewById(R.id.bt_night);
         //初始化底部栏控件
         rb_nearby = (RadioButton) findViewById(R.id.rb_nearby);
         rb_route = (RadioButton) findViewById(R.id.rb_route);
@@ -110,6 +113,13 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, NearbyActivity.class);
                 startActivity(intent);
+            }
+        });
+        //操作夜间模式切换
+        bt_night.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aMap.setMapType(AMap.MAP_TYPE_NIGHT);
             }
         });
         //操作控件rb_nearby点击事件

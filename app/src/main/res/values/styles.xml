@@ -8,6 +8,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!-- 日间模式 -->
+    <style name="AppTheme.day" parent="AppTheme">
+        <item name="containerBackground">@color/white_dark</item>
+        <item name="titleColor">@color/gray_dark</item>
+        <item name="textColor">@color/gray</item>
+    </style>
+    <!-- 夜间模式 -->
+    <style name="AppTheme.night" parent="AppTheme">
+        <item name="containerBackground">@color/green_dark</item>
+        <item name="titleColor">@color/white_dark</item>
+        <item name="textColor">@color/green_light</item>
+    </style>
     <!--activity_home_RadioButton共同属性-->
     <style name="activity_home_RadioButton">
         <item name="android:layout_width">0dp</item>
