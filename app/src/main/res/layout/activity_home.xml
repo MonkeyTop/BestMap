@@ -26,13 +26,36 @@
             android:drawablePadding="10dp"
             android:hint="查找地点、公交、地铁"
             android:padding="10dp" />
-    </RelativeLayout>
 
-    <Button
-        android:id="@+id/bt_night"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="夜间模式" />
+        <CheckBox
+            android:id="@+id/cb_night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:button="@null"
+            android:text="夜间模式" />
+
+        <CheckBox
+            android:id="@+id/cb_satelliteMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/cb_night"
+            android:button="@null"
+            android:text="卫星地图" />
+
+        <CheckBox
+            android:id="@+id/cb_roadCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/cb_satelliteMap"
+            android:button="@null"
+            android:text="路况" />
+    </RelativeLayout>
 
     <RadioGroup
         android:layout_width="match_parent"

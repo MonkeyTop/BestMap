@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
@@ -31,7 +32,9 @@ import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity {
     private EditText et_search;
-    private Button bt_night;
+    private CheckBox cb_night;
+    private CheckBox cb_satelliteMap;
+    private CheckBox cb_roadCondition;
     private RadioButton rb_nearby;
     private RadioButton rb_route;
     private RadioButton rb_mine;
@@ -93,7 +96,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         //初始化搜索框控件
         et_search = (EditText) findViewById(R.id.et_search);
-        bt_night = (Button) findViewById(R.id.bt_night);
+        cb_night = (CheckBox) findViewById(R.id.cb_night);
+        cb_satelliteMap = (CheckBox) findViewById(R.id.cb_satelliteMap);
+        cb_roadCondition = (CheckBox) findViewById(R.id.cb_roadCondition);
         //初始化底部栏控件
         rb_nearby = (RadioButton) findViewById(R.id.rb_nearby);
         rb_route = (RadioButton) findViewById(R.id.rb_route);
@@ -106,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
         mLocationClient = new AMapLocationClient(getApplicationContext());
         //设置定位回调监听
         mLocationClient.setLocationListener(aMapLocationListener);
+        //初始化Amap对象
         init();
         //操作控件et_search点击事件
         et_search.setOnClickListener(new View.OnClickListener() {
@@ -116,10 +122,36 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         //操作夜间模式切换
-        bt_night.setOnClickListener(new View.OnClickListener() {
+        cb_night.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                aMap.setMapType(AMap.MAP_TYPE_NIGHT);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    aMap.setMapType(AMap.MAP_TYPE_NIGHT);
+                } else {
+                    aMap.setMapType(AMap.MAP_TYPE_NORMAL);
+                }
+            }
+        });
+        //操作卫星地图显示模式
+        cb_satelliteMap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    aMap.setMapType(AMap.MAP_TYPE_SATELLITE);
+                } else {
+                    aMap.setMapType(AMap.MAP_TYPE_NORMAL);
+                }
+            }
+        });
+        //操作路况显示事件
+        cb_roadCondition.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    aMap.setTrafficEnabled(true);
+                } else {
+                    aMap.setTrafficEnabled(false);
+                }
             }
         });
         //操作控件rb_nearby点击事件
@@ -204,5 +236,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onDestroy();
         //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
         mapView.onDestroy();
+    }
+
+    public AMap getaMap() {
+        return aMap;
+    }
+
+    public void setaMap(AMap aMap) {
+        this.aMap = aMap;
     }
 }
