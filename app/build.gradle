@@ -23,6 +23,11 @@ android {
         }
     }
 }
+repositories {
+    flatDir {
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -30,4 +35,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile files('libs/AMap_3DMap_V3.4.0_20160809.jar')
     compile files('libs/AMap_Location_V2.9.0_20160906.jar')
+    compile name: 'SMSSDK-2.1.1', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.1', ext: 'aar'
+    compile files('libs/android-support-v4.jar')
+    compile files('libs/weizhang_sdk.jar')
 }

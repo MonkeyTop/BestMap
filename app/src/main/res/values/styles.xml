@@ -8,6 +8,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!-- 日间模式 -->
+    <style name="AppTheme.day" parent="AppTheme">
+        <item name="containerBackground">@color/white_dark</item>
+        <item name="titleColor">@color/gray_dark</item>
+        <item name="textColor">@color/gray</item>
+    </style>
+    <!-- 夜间模式 -->
+    <style name="AppTheme.night" parent="AppTheme">
+        <item name="containerBackground">@color/green_dark</item>
+        <item name="titleColor">@color/white_dark</item>
+        <item name="textColor">@color/green_light</item>
+    </style>
     <!--activity_home_RadioButton共同属性-->
     <style name="activity_home_RadioButton">
         <item name="android:layout_width">0dp</item>
@@ -17,5 +29,89 @@
         <item name="android:drawablePadding">5dp</item>
         <item name="android:paddingLeft">30dp</item>
         <item name="android:layout_gravity">right|center_vertical</item>
+    </style>
+    <!--activity_mine_RadioButton共同属性-->
+    <style name="activity_mine_RadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <!--activity_mine_tools_RadioButton共同属性-->
+    <style name="activity_mine_tools_RadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+    <!--activity_computer_Button共同属性-->
+    <style name="activity_computer_Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+    <!--activity_date_TextView共同属性-->
+    <style name="activity_date_TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <!--查询表单LinearLayout共同属性设置-->
+    <style name="query_row">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="query_LinearLayout" parent="query_row">
+        <item name="android:background">@drawable/query_form_row</item>
+    </style>
+    <!--查询表单RelativeLayout共同属性设置-->
+    <style name="query_RelativeLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!--查询表单TextView共同属性-->
+    <style name="query_form_TextView">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">#ff969696</item>
+    </style>
+
+    <style name="csy_textbox">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/query_nickName</item>
+        <item name="android:textColorHint">@color/query_hint</item>
+        <item name="android:background">@drawable/query_textbox</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="query_textview_hint" parent="csy_textbox">
+        <item name="android:layout_marginRight">40dp</item>
+    </style>
+    <!--query_imageview共同属性设置-->
+    <style name="query_row_icon">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:scaleType">center</item>
     </style>
 </resources>

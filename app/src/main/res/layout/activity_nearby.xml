@@ -31,6 +31,10 @@
             android:drawableLeft="@mipmap/search_icon"
             android:drawablePadding="10dp"
             android:hint="搜索"
-            android:padding="15dp" />
+            android:padding="12dp" />
     </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
 </LinearLayout>

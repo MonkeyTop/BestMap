@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#363636">
+
+    <RadioButton
+        android:id="@+id/rb_computer"
+        style="@style/activity_mine_tools_RadioButton"
+        android:drawableTop="@mipmap/icon_superfromto_navi"
+        android:text="计算机" />
+
+    <RadioButton
+        android:id="@+id/rb_light"
+        style="@style/activity_mine_tools_RadioButton"
+        android:drawableTop="@mipmap/icon_superfromto_subwaymap"
+        android:text="手电筒" />
+
+    <RadioButton
+        android:id="@+id/rb_calendar"
+        style="@style/activity_mine_tools_RadioButton"
+        android:drawableTop="@mipmap/icon_superfromto_travel"
+        android:text="日历" />
+</LinearLayout>
