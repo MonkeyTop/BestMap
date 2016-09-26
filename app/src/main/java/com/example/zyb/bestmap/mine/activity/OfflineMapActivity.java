@@ -37,7 +37,7 @@ import java.util.List;
 
 /**
  * 离线地图下载
- * <p>
+ * <p/>
  * Created by zyb on 2016/9/23.
  */
 public class OfflineMapActivity extends Activity implements OfflineMapDownloadListener, OnClickListener, OnPageChangeListener {
@@ -74,7 +74,6 @@ public class OfflineMapActivity extends Activity implements OfflineMapDownloadLi
                     }
                     break;
                 case SHOW_MSG:
-                    //Toast.makeText(OfflineMapActivity.this, (String) msg.obj,Toast.LENGTH_SHORT).show()
                     ToastUtil.showShortToast(OfflineMapActivity.this, (String) msg.obj);
                     break;
                 case DISMISS_INIT_DIALOG:
@@ -338,7 +337,6 @@ public class OfflineMapActivity extends Activity implements OfflineMapDownloadLi
                 break;
             case OfflineMapStatus.UNZIP:
                 Log.d("amap-unzip", "unzip: " + completeCode + "%" + "," + downName);
-                //changeOfflineMapTitle(OfflineMapStatus.UNZIP);
                 //changeOfflineMapTitle(OfflineMapStatus.UNZIP, downName);
                 break;
             case OfflineMapStatus.WAITING:
@@ -429,13 +427,13 @@ public class OfflineMapActivity extends Activity implements OfflineMapDownloadLi
         int paddingVertical = mDownloadedText.getPaddingTop();
         switch (arg0) {
             case 0:
-                mDownloadText.setBackgroundResource(R.drawable.offlinearrow_tab1_pressed);
-                mDownloadedText.setBackgroundResource(R.drawable.offlinearrow_tab2_normal);
+                mDownloadText.setBackgroundResource(R.drawable.mine_offlinearrow_pressed1);
+                mDownloadedText.setBackgroundResource(R.drawable.mine_offlinearrow_normal2);
                 //mPageAdapter.notifyDataSetChanged();
                 break;
             case 1:
-                mDownloadText.setBackgroundResource(R.drawable.offlinearrow_tab1_normal);
-                mDownloadedText.setBackgroundResource(R.drawable.offlinearrow_tab2_pressed);
+                mDownloadText.setBackgroundResource(R.drawable.mine_offlinearrow_normal1);
+                mDownloadedText.setBackgroundResource(R.drawable.mine_offlinearrow_pressed2);
                 //mDownloadedAdapter.notifyDataChange();
                 break;
         }
